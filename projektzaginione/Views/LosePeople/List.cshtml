@@ -1,0 +1,44 @@
+﻿@model IEnumerable<projektzaginione.Models.LosePeople>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista Zaginionych</h2>
+<p>
+    @Html.ActionLink("Dodaj zaginionego", "Create", "LosePeople", null, new { @class = "btn btn-primary" })
+</p>
+<table id="peoples" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+            <th>Wiek</th>
+            <th>Lokalizacja</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Imie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nazwisko)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Wiek)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lokalizacja)
+                </td>
+                <td>
+                    @Html.ActionLink("Wiecej Informacji", "Details", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
